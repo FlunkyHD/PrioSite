@@ -1,17 +1,46 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div>
+    <Header />
+    <Nav />
+  </div>
+  <div>
+    <button
+      v-for="tab in tabs"
+      :key="tab"
+      @click="selected = tab"
+      :class="['tab-btn', { active: selected === tab }]"
+    >
+      {{ tab }}
+    </button>
+    <component :is="selected" class="tab"> </component>
+  </div>
+  <div>
+    <Footer />
+  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import { defineComponent } from "vue";
+import Nav from "./components/Nav.vue";
+import Footer from "./components/Footer.vue";
+
+import PlanningBoardTab from "./components/PlanningBoardTab.vue";
+import PrioritizeTasksTab from "./components/PrioritizeTasksTab.vue";
 
 export default defineComponent({
-  name: 'App',
+  name: "App",
+  data: function () {
+    return {
+      tabs: ["PrioritizeTasksTab", "PlanningBoardTab", "xD"],
+      selected: "PrioritizeTasksTab",
+    };
+  },
   components: {
-    HelloWorld
-  }
+    Nav,
+    Footer,
+    PlanningBoardTab,
+    PrioritizeTasksTab,
+  },
 });
 </script>
 
