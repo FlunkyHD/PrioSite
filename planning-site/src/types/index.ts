@@ -1,6 +1,7 @@
 export interface Task {
-    Name: String;
-    Value: Number;
+    ID: number;
+    Name: string;
+    Value: number;
 }
 
 export interface TaskList {
