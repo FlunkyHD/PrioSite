@@ -7,3 +7,12 @@ export interface Task {
 export interface TaskList {
     ListOfTasks: Task[]
 }
+
+export interface TaskCompare {
+    FirstTask: Task;
+    SecondTask: Task;
+}
+
+export interface TaskCompareList {
+    ListOfCompareTasks: TaskCompare[];
+}
